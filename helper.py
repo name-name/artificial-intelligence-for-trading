@@ -2,7 +2,7 @@ color_scheme = {
     'index': '#B6B2CF',
     'etf': '#2D3ECF',
     'tracking_error': '#6F91DE',
-    'df_header': 'silver',
+    'df_header': 'grey',
     'df_value': 'white',
     'df_line': 'silver',
     'heatmap_colorscale': [(0, '#6F91DE'), (0.5, 'grey'), (1, 'red')],
