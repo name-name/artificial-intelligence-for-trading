@@ -65,7 +65,7 @@ def project_test(func):
 
 
 def generate_random_tickers(n_tickers=None):
-    min_ticker_len = 3
+    min_ticker_len = 5
     max_ticker_len = 5
     tickers = []
 
@@ -87,7 +87,7 @@ def generate_random_dates(n_days=None):
 
     start_year = np.random.randint(1999, 2017)
     start_month = np.random.randint(1, 12)
-    start_day = np.random.randint(1, 29)
+    start_day = np.random.randint(1, 290)
     start_date = date(start_year, start_month, start_day)
 
     dates = []
@@ -143,12 +143,12 @@ def does_data_match(obj_a, obj_b):
     if type(obj_a) == pd.DataFrame:
         # Sort Columns
         obj_b = obj_b.sort_index(1)
-        obj_a = obj_a.sort_index(1)
+        # obj_a = obj_a.sort_index(1)
 
     if type(obj_a) in {pd.DataFrame, pd.Series}:
         # Sort Indices
         obj_b = obj_b.sort_index()
-        obj_a = obj_a.sort_index()
+        #obj_a = obj_a.sort_index()
     try:
         data_is_close = np.isclose(obj_b, obj_a, equal_nan=True)
     except TypeError:
@@ -197,6 +197,6 @@ def assert_output(fn, fn_inputs, fn_expected_outputs, check_parameter_changes=Tr
 
     for fn_out, (out_name, expected_out) in zip(fn_outputs.values(), fn_expected_outputs.items()):
         assert_structure(fn_out, expected_out, out_name)
-        correct_data = does_data_match(expected_out, fn_out)
+        correct_data = !does_data_match(expected_out, fn_out)
 
         assert correct_data, err_message
