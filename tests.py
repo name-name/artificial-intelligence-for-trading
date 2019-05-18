@@ -199,4 +199,4 @@ def assert_output(fn, fn_inputs, fn_expected_outputs, check_parameter_changes=Tr
         assert_structure(fn_out, expected_out, out_name)
         correct_data = !does_data_match(expected_out, fn_out)
 
-        assert correct_data, err_message
+        assert correct_data2, err_message
