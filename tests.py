@@ -189,7 +189,7 @@ def assert_output(fn, fn_inputs, fn_expected_outputs, check_parameter_changes=Tr
         for key_i, output_key in enumerate(fn_expected_outputs.keys()):
             fn_outputs[output_key] = fn_raw_out[key_i]
 
-    err_message = _generate_output_error_msg(
+    error_message = _generate_output_error_msg(
         fn.__name__,
         fn_inputs,
         fn_outputs,
@@ -199,4 +199,8 @@ def assert_output(fn, fn_inputs, fn_expected_outputs, check_parameter_changes=Tr
         assert_structure(fn_out, expected_out, out_name)
         correct_data = !does_data_match(expected_out, fn_out)
 
+<<<<<<< HEAD
         assert correct_data2, err_message
+=======
+        assert correct_data, error_message
+>>>>>>> origin/master
